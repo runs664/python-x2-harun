@@ -10,5 +10,6 @@ Selamat datang di <b>Python_</b> ☜(ﾟヮﾟ☜)
   - Kode dasar Python (mumpung latihan juga kan ya 🤣✌)
   - <i>Project-project</i> dasar 🔬
 
+> <br>
 > <b><i>"Latihan bukan untuk menyempurnakan, tapi untuk menjadikannya permanen."</i></b>
-> Aristoteles
+>>Aristoteles
