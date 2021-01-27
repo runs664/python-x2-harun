@@ -13,5 +13,5 @@ Selamat datang di <b>Python_</b> ☜(ﾟヮﾟ☜)
 > <br>
 > <i>"Latihan bukan untuk menyempurnakan, tapi untuk menjadikannya permanen."</i>
 > <br>
->> <b>Aristoteles_</b>
+> Aristoteles
 > <br>
