@@ -11,5 +11,7 @@ Selamat datang di <b>Python_</b> ☜(ﾟヮﾟ☜)
   - <i>Project-project</i> dasar 🔬
 
 > <br>
-> <b><i>"Latihan bukan untuk menyempurnakan, tapi untuk menjadikannya permanen."</i></b>
->>Aristoteles
+> <i>"Latihan bukan untuk menyempurnakan, tapi untuk menjadikannya permanen."</i>
+> <br>
+>> <b>Aristoteles_</b>
+> <br>
