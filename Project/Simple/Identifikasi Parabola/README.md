@@ -1,7 +1,10 @@
 ## Identifikasi Parabola 🔍
 
-※ Program simpel dalam folder ini akan memeriksa input pengguna, sesuai dengan variabel dalam persamaan umum parabola ax<sup>2</sup> + bx + c.
-※ Lalu sistem akan mengembalikan input dalam bentuk
+※ Program simpel dalam folder ini akan <b>memeriksa input</b> pengguna, sesuai dengan <b>variabel</b> dalam persamaan umum parabola
+
+> <b>ax<sup>2</sup> + bx + c.</b>
+
+※ Lalu sistem akan <b>mengembalikan input</b> dalam bentuk: 
 1. Arah grafik 📈
 2. Diskriminan 🔢
 3. Titik potong dengan sumbu x, y ✂
