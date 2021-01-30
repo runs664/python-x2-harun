@@ -1,9 +1,9 @@
 # import modul yang diperlukan --> pytube/youtube
-from pytube import YouTube
+import pytube
 
 # mengambil input dari user berupa link
 link_user = input("Masukkan link konten youtube yang ingin anda unduh : ")
-yt = YouTube(link_user)
+yt = pytube.YouTube(link_user)
 
 # menunjukkan informasi video
 print("Judul            : ",yt.title)
@@ -19,5 +19,5 @@ konfirmasi = input("Ketik huruf Y untuk memulai unduhan...")
 if konfirmasi.upper() == "Y":
     # memulai unduhan
     print("Mengunduh...")
-    downloader.download("%userprofile%/Downloads/Video")
+    downloader.download()
     print("Unduhan Selesai!!")
