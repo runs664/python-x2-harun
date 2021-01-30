@@ -14,7 +14,7 @@ print("Penilaian video  : ",yt.rating)
 # mengambil video dengan kualitas tertinggi
 downloader = yt.streams.get_highest_resolution()
 
-# konfirmasi unduhan
+# konfirmasi unduhan oleh user
 konfirmasi = input("Ketik huruf Y untuk memulai unduhan...")
 if konfirmasi.upper() == "Y":
     # memulai unduhan
