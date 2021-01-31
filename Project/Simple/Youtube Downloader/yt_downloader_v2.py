@@ -1,5 +1,6 @@
-import pafy
-from tqdm import tqdm
+import pafy                         # modul untuk interaksi dengan YouTube
+import locale                       # modul untuk membuat delimiter angka agar mudah dibaca
+locale.setlocale(locale.LC_ALL, '')
 
 url = input("Masukkan link konten youtube yang ingin anda unduh : ")
 video = pafy.new(url)
@@ -16,12 +17,13 @@ def convert_bytes(num):
 streams = video.streams
 best = video.getbest()
 
-print("Judul            : ", video.title)
-print("Jumlah ditonton  : ", video.viewcount)
-print("Channel          : ", video.author)
-print("Durasi video     : ", video.duration)
-print("Disukai oleh     : ", video.likes)
-print("Ukuran video     : ", convert_bytes(best.get_filesize()))
+print("Judul                : {}".format(video.title))
+print("Channel              : {}".format(video.author))
+print("Durasi video         : {}".format(video.duration))
+print("Jumlah ditonton      : {0:n}".format(video.viewcount))
+print("Disukai oleh         : {0:n}".format(video.likes))
+print("Tidak disukai oleh   : {0:n}".format(video.dislikes))
+print("Ukuran video         : {}".format(convert_bytes(best.get_filesize())))
 
 konfirmasi = input("Ketik Y untuk mengunduh file... : ")
 if konfirmasi.upper() == 'Y':
@@ -29,4 +31,3 @@ if konfirmasi.upper() == 'Y':
     print("Unduhan Selesai!!!")
 else:
     print("Selamat tinggal!")
-
