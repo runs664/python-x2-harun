@@ -1,7 +1,5 @@
 import pafy
-import os
 from tqdm import tqdm
-from time import sleep
 
 url = input("Masukkan link konten youtube yang ingin anda unduh : ")
 video = pafy.new(url)
