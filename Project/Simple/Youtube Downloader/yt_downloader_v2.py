@@ -3,6 +3,7 @@ import locale                       # modul untuk membuat delimiter angka agar m
 locale.setlocale(locale.LC_ALL, '')
 import clipboard
 
+
 url = input("Masukkan link konten youtube yang ingin anda unduh : ")
 video = pafy.new(url)
 
@@ -29,11 +30,13 @@ klip = input("Simpan link ke clipboard? y/n")
 if klip.upper() == 'Y':
     clipboard.copy(best.url)
 else:
-    print("Link direct          : {}".format(best.url))
+    print("\nLink direct          : {}".format(best.url))
 
-konfirmasi = input("Ketik Y untuk mengunduh file... : ")
+konfirmasi = input("\nKetik Y untuk mengunduh file... : ")
 if konfirmasi.upper() == 'Y':
     best.download(quiet=False)
     print("Unduhan Selesai!!!")
+    input()
 else:
     print("Selamat tinggal!")
+    input()
