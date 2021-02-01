@@ -56,7 +56,7 @@ while True:
         negara_kataRahasia = negara['negara']
         negara_clue = negara['clue']
         angka_kataRahasia = angka['angka']
-        angka_clue = negara['clue']
+        angka_clue = angka['clue']
 
         if kategori.upper() == 'B':
             hurufRahasia = buah_kataRahasia
