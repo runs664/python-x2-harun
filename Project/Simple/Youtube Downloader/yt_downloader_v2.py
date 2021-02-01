@@ -6,9 +6,7 @@ url = input("Masukkan link konten youtube yang ingin anda unduh : ")
 video = pafy.new(url)
 
 def convert_bytes(num):
-    """
-    this function will convert bytes to MB.... GB... etc
-    """
+    # this function will convert bytes to MB.... GB... etc
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
         if num < 1024.0:
             return "%3.1f %s" % (num, x)
@@ -24,6 +22,7 @@ print("Jumlah ditonton      : {0:n}".format(video.viewcount))
 print("Disukai oleh         : {0:n}".format(video.likes))
 print("Tidak disukai oleh   : {0:n}".format(video.dislikes))
 print("Ukuran video         : {}".format(convert_bytes(best.get_filesize())))
+print("Link direct          : {}".format(best.url))
 
 konfirmasi = input("Ketik Y untuk mengunduh file... : ")
 if konfirmasi.upper() == 'Y':

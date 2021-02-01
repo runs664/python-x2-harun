@@ -3,7 +3,7 @@ import pyodbc
 
 # inisialisasi komponen untuk pemanggilan
 access_driver = '{Microsoft Access Driver (*.mdb, *.accdb)}'
-filepath = r'Project\Intermediate\Database_Connection\test_DB.accdb'
+filepath = r'Project\Intermediate\Database_Connection\read\test_DB.accdb'
 tabelDB = 'testdb' # disesuaikan dengan nama tabel dalam database Access
 
 # membuat koneksi ke database

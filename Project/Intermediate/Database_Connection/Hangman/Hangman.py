@@ -20,7 +20,13 @@ tebakanpemain = []      # untuk jawaban pemain
 mulaiPermainan = True
 kategori = ""
 lanjutkanPermainan = "Y"
-inputmasuk = "Silahkan pilih kategori yang ingin anda tebak. Ketik\nB untuk buah\nN untuk negara\nH untuk hewan\nX untuk keluar program.\nAnda memilih :"
+inputmasuk = "Silahkan pilih kategori yang ingin anda tebak. Ketik\
+                \nB untuk buah\
+                \nN untuk negara\
+                \nH untuk hewan\
+                \nA untuk angka\
+                \nX untuk keluar program.\
+                \nAnda memilih :"
 filedb = r"Project\Intermediate\Database_Connection\Hangman\data.accdb"
 
 # Collecting Info from Player
@@ -40,6 +46,7 @@ while True:
         buah = bacaDB_random(filedb, 'buah')
         hewan = bacaDB_random(filedb, 'hewan')
         negara = bacaDB_random(filedb, 'negara')
+        angka = bacaDB_random(filedb, 'angka')
 
         # definisi untuk split array menjadi kata rahasia dan clue nya
         buah_kataRahasia = buah['buah']
@@ -48,6 +55,8 @@ while True:
         hewan_clue = hewan['clue']
         negara_kataRahasia = negara['negara']
         negara_clue = negara['clue']
+        angka_kataRahasia = angka['angka']
+        angka_clue = negara['clue']
 
         if kategori.upper() == 'B':
             hurufRahasia = buah_kataRahasia
@@ -60,6 +69,10 @@ while True:
         elif kategori.upper() == 'N':
             hurufRahasia = negara_kataRahasia
             clue = negara_clue
+            break
+        elif kategori.upper() == 'A':
+            hurufRahasia = angka_kataRahasia
+            clue = angka_clue
             break
         else:
             kategori = input(inputmasuk)
