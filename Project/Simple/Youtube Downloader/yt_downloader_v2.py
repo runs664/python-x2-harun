@@ -20,7 +20,10 @@ print("Judul                : {}".format(video.title))
 print("Channel              : {}".format(video.author))
 print("Durasi video         : {}".format(video.duration))
 print("Jumlah ditonton      : {0:n}".format(video.viewcount))
-print("Disukai oleh         : {0:n}".format(video.likes))
+if video.likes != None:
+    print("Disukai oleh         : {0:n}".format(video.likes))
+if video.dislikes != None:
+    print("Tidak disukai oleh   : {0:n}".format(video.dislikes))
 print("Ukuran video         : {}".format(convert_bytes(best.get_filesize())))
 klip = input("Simpan link ke clipboard? y/n")
 if klip.upper() == 'Y':
