@@ -1,13 +1,13 @@
-import pafy                         # modul untuk interaksi dengan YouTube
-import locale                       # modul untuk membuat delimiter angka agar mudah dibaca
-locale.setlocale(locale.LC_ALL, '')
-import clipboard
-import os
-import requests
-import tqdm
+import pafy         # modul untuk interaksi dengan YouTube
+import locale       # modul untuk membuat delimiter angka agar mudah dibaca
+import clipboard    # modul untuk copy link url ke clipboard
+import os           # modul pause commandprompt, bila dieksekusi nantinya
+import requests     # modul untuk mendownload file dari link
+import tqdm         # modul untuk membuat proggress bar dari proses download
 
 url = input("Masukkan link konten youtube yang ingin anda unduh : ")
 video = pafy.new(url)
+locale.setlocale(locale.LC_ALL, '')
 
 def convert_bytes(num):
     # this function will convert bytes to MB.... GB... etc

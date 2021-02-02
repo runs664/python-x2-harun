@@ -48,7 +48,7 @@ while True:
         negara = bacaDB_random(filedb, 'negara')
         angka = bacaDB_random(filedb, 'angka')
 
-        # definisi untuk split array menjadi kata rahasia dan clue nya
+        # definisi untuk split list menjadi kata rahasia dan clue nya
         buah_kataRahasia = buah['buah']
         buah_clue = buah['clue']
         hewan_kataRahasia = hewan['hewan']
