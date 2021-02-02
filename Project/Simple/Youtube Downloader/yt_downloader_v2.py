@@ -2,7 +2,9 @@ import pafy                         # modul untuk interaksi dengan YouTube
 import locale                       # modul untuk membuat delimiter angka agar mudah dibaca
 locale.setlocale(locale.LC_ALL, '')
 import clipboard
-
+import os
+import requests
+import tqdm
 
 url = input("Masukkan link konten youtube yang ingin anda unduh : ")
 video = pafy.new(url)
@@ -33,10 +35,23 @@ else:
     print("\nLink direct          : {}".format(best.url))
 
 konfirmasi = input("\nKetik Y untuk mengunduh file... : ")
+
 if konfirmasi.upper() == 'Y':
-    best.download(quiet=False)
+    chunk_size = 1024
+    alamat = best.url
+    r = requests.get(alamat, stream = True)
+    total_size = int(r.headers['content-length'])
+    with open(video.title+".mp4", 'wb') as f:
+        for data in tqdm.tqdm(iterable = r.iter_content(chunk_size = chunk_size), total = total_size/chunk_size, unit = 'KB'):
+            f.write(data)
     print("Unduhan Selesai!!!")
-    input()
+    os.system("pause")
+
+    #konfirmasi = input("\nKetik Y untuk mengunduh file... : ")
+    #if konfirmasi.upper() == 'Y':
+    #    best.download(quiet=False)
+    #    print("Unduhan Selesai!!!")
+    #    os.system("pause")
 else:
     print("Selamat tinggal!")
-    input()
+    os.system("pause")
