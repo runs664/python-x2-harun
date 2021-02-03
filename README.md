@@ -1,5 +1,5 @@
 # python-x2-harun
-### Haloooo 👋
+### Halooooo 👋
 
 Selamat datang di <b>python-x2-harun</b> ☜(ﾟヮﾟ☜)
 
