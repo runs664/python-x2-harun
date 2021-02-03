@@ -1,7 +1,7 @@
 # python-x2-harun
 ### Halooooo 👋
 
-Selamat datang di <b>python-x2-harun</b> ☜(ﾟヮﾟ☜)
+Selamat datang di <b>"python-x2-harun"</b> ☜(ﾟヮﾟ☜)
 
 ※ Perkenalkan, namaku <b>Harun</b> bisa dipanggil <b>ruNs_</b>... 🙌 
   
