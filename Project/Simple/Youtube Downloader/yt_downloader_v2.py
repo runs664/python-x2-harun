@@ -42,7 +42,7 @@ if konfirmasi.upper() == 'Y':
     r = requests.get(alamat, stream = True)
     total_size = int(r.headers['content-length'])
     with open(video.title+".mp4", 'wb') as f:
-        for data in tqdm.tqdm(iterable = r.iter_content(chunk_size = chunk_size), total = int(total_size/chunk_size), unit = 'KB'):
+        for data in tqdm.tqdm(iterable = r.iter_content(chunk_size = chunk_size), total = int(total_size/chunk_size), unit = 'KB', colour='green'):
             f.write(data)
     print("Unduhan Selesai!!!")
     os.system("pause")
