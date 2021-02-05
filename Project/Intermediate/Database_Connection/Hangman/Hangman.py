@@ -2,7 +2,7 @@ import random, time
 import pyodbc
 
 def bacaDB_random(file_path, tabel):
-    conn = conn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='+file_path+';')
+    conn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='+file_path+';')
     cursor = conn.cursor()
     cursor.execute('select * from '+tabel+'')
     kolom = [column[0] for column in cursor.description]
