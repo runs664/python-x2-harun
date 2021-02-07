@@ -38,7 +38,32 @@ def factorial(n):
         f *= i
     return f
 
-def kombinasi(n, k):
-    return int(factorial(n)/(factorial(n-k)*factorial(k)))
+def multi_factorial(*args):
+    f = 1
+    for i in range(len(args)):
+        f *= factorial(args[i])
+    return f
 
+def kombinasi(n, k):
+    return int(factorial(n)/(factorial(n - k)*factorial(k)))
+
+def permutasi(n, k):
+    return int(factorial(n)/factorial(n - k))
+
+def permutasi_unsur(n, *args):
+    e = 1
+    for j in range(1, n+1):
+        e *= j
+    f = 1
+    for i in args:
+        f *= factorial(i)
+    return int(e/f)
+
+def permutasi_siklus(n):
+    return factorial(n-1)
+
+print(factorial(10))
 print(kombinasi(5, 3))
+print(multi_factorial(1,2,3))
+print(permutasi(4,4))
+print(permutasi_unsur(10,2,3,4,2))

@@ -14,3 +14,6 @@ def romawiToInt(romawi):
             num += preset[romawi[i]]
             i += 1
     return num
+
+ipt = input("Masukkan string berisi angka romawi: ")
+print(romawiToInt(ipt.upper()))
