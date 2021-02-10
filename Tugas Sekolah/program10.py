@@ -1,11 +1,11 @@
-def konversi_suhu(angka, dari, ke):
+def konversi_suhu(angka, dari, ke): # sehingga lebih fleksibel, misal: konversi_suhu(100, 'C', 'F')
     """
     Mengembalikan nilai berupa hasil konversi suhu dari nilai yang diberikan menuju nilai yang dituju\n
     `angka : float`\n
     `dari : str` berupa `C, F, R`\n
     `ke : str` berupa `C, F, R`
     """
-    C, R, F = 5, 4, 9
+    C, R, F = 5, 4, 9 # nilai perbandingan suhu
     if (dari == 'C') and (ke == 'F'):
         return ((F/C*angka) + 32, ke) # dibuat tuple agar bisa menyajikan beberapa data yang berbeda
     elif (dari == 'F') and (ke == 'C'):
@@ -19,7 +19,7 @@ def konversi_suhu(angka, dari, ke):
     elif (dari == 'R') and (ke == 'C'):
         return (C/R*angka, ke)
 
-nilai = float(input("Masukkan nilai dari suhu Celcius : "))
+nilai = float(input("Masukkan nilai dari suhu Celcius : ")) # karena yg diminta dari celcius ke reamur dan fahrenheit
 hasil_R = konversi_suhu(nilai, 'C', 'R')
 hasil_F = konversi_suhu(nilai, 'C', 'F')
 print("Hasil Konversi :\n\
