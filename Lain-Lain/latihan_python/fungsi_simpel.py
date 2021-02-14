@@ -1,7 +1,7 @@
 def jumlah(*args):
     """
     Mengembalikan nilai berupa hasil penjumlahan, dari nilai yang diberikan\n
-    args (tuple, list) : int or float
+    `args (tuple, list) : int or float`
     """
     total = 0
     for i in args:
@@ -11,7 +11,7 @@ def jumlah(*args):
 def rerata(*args):
     """
     Mengembalikan nilai berupa hasil rerata, dari nilai yang diberikan\n
-    args (tuple, list) : int or float
+    `args (tuple, list) : int or float`
     """
     total = 0
     for i in args:
@@ -20,8 +20,8 @@ def rerata(*args):
 
 def gauss(awal, akhir, lompat = 1):
     """
-    Mengembalikan nilai berupa hasil penjumlahan gauss (n + n+1 + n+2 ...), dari nilai yang diberikan\n
-    awal, akhir, lompat : int
+    Mengembalikan nilai berupa hasil penjumlahan gauss (`n + n+1 + n+2 ...`), dari nilai yang diberikan\n
+    `awal, akhir, lompat : int`
     """
     total = 0
     for i in range(awal, akhir+1, lompat):
@@ -30,8 +30,8 @@ def gauss(awal, akhir, lompat = 1):
 
 def factorial(n):
     """
-    Mengembalikan nilai berupa hasil faktorial (n * (n - 1) * (n - 2) ...), dari nilai yang diberikan\n
-    n : int
+    Mengembalikan nilai berupa hasil faktorial (`n * (n - 1) * (n - 2) ...`), dari nilai yang diberikan\n
+    `n : int`
     """
     f = 1
     for i in range(1, n+1):
@@ -62,8 +62,11 @@ def permutasi_unsur(n, *args):
 def permutasi_siklus(n):
     return factorial(n-1)
 
+def permutasi_berulang(n, r):
+    return n**r
+
 print(factorial(10))
 print(kombinasi(5, 3))
 print(multi_factorial(1,2,3))
 print(permutasi(4,4))
-print(permutasi_unsur(10,2,3,4,2))
+print(permutasi_unsur(6,2))

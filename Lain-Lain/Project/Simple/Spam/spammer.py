@@ -8,8 +8,8 @@ print("Spam selesaiiii Mweheheheheeee")
 input() # pause console
 
 # versi tanpa file tambahan
-"""
-import pyautogui, time
+
+import pyautogui, time # sebelum ini, buka cmd lalu ketikkan 'pip install pyautogui' pastikan terkoneksi internet
 jumlah = int(input("Ingin spam sebanyak berapa pesan? "))
 pesan = input("Ingin pesan berupa? (isi angka atau huruf atau kalimat) ")
 time.sleep(7)
@@ -18,4 +18,3 @@ for spam in range(jumlah):
     pyautogui.press("enter") # eksekusi enter (mengirimkan pesan)
 print("Spam selesaiiii Mweheheheheeee")
 input() # pause console
-"""
