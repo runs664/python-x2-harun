@@ -62,11 +62,14 @@ def permutasi_unsur(n, *args):
 def permutasi_siklus(n):
     return factorial(n-1)
 
-def permutasi_berulang(n, r):
-    return n**r
-
-print(factorial(10))
-print(kombinasi(5, 3))
-print(multi_factorial(1,2,3))
-print(permutasi(4,4))
-print(permutasi_unsur(6,2))
+def permutasi_password(total_karakter, panjang_karakter):
+    hasil = 0
+    for i in range(1, panjang_karakter+1):
+        hasil += permutasi(total_karakter, i)
+    return hasil
+        
+import locale
+locale.setlocale(locale.LC_ALL, '')
+print("untuk 255 karakter dengan panjang 1-8 : {0:n}".format(jumlah(permutasi(255,1),permutasi(255,2),permutasi(255,3),permutasi(255,4),permutasi(255,5),permutasi(255,6),permutasi(255,7),permutasi(255,8))))
+print("untuk 255 karakter dengan panjang 1-12: {0:n}".format(jumlah(permutasi(255,1),permutasi(255,2),permutasi(255,3),permutasi(255,4),permutasi(255,5),permutasi(255,6),permutasi(255,7),permutasi(255,8),permutasi(255,9),permutasi(255,10),permutasi(255,11),permutasi(255,12))))
+print("untuk 255 karakter dengan panjang 1-16: {0:n}".format(permutasi_password(255, 16)))
