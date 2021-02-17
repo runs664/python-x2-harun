@@ -29,7 +29,8 @@ if __name__ == "__main__":
     # ACCESS_KEY = 'access key dari fixer.io' 
     url = str.__add__('http://data.fixer.io/api/latest?access_key=', '64288a10cb40d5ee370f208fe6676642')  # url + access_key
     konversi = KonversiUang()
-    konfirmasi = input("Apakah ingin memuat ulang realtime database? Y/N ")
+    print("Database yang dipakai adalah data.json dengan update terakhir pada tanggal",konversi.tanggal)
+    konfirmasi = input("Apakah ingin memuat ulang realtime database? (koneksi internet diperlukan) Y/N ")
     if konfirmasi.upper() == 'Y':
         konversi.refresh(url)
     print("Data ISO tiap negara\n", konversi.namakurensi)
