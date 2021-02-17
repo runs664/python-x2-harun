@@ -17,10 +17,10 @@ class KonversiUang:
 
 if __name__ == "__main__": 
   
-    # YOUR_ACCESS_KEY = 'access key dari fixer.io' 
-    url = str.__add__('http://data.fixer.io/api/latest?access_key=', '64288a10cb40d5ee370f208fe6676642')   
+    # ACCESS_KEY = 'access key dari fixer.io' 
+    url = str.__add__('http://data.fixer.io/api/latest?access_key=', '64288a10cb40d5ee370f208fe6676642')  # url + access_key
     konversi = KonversiUang(url)
-    print("Data ISO tiap negara", konversi.namakurensi)
+    print("Data ISO tiap negara\n", konversi.namakurensi)
     dari = input("Masukkan jenis mata uang awal (3 huruf sesuai ketentuan internasional -> kode ISO, misal US Dollar = USD) : ") 
     tujuan = input("Masukkan jenis mata uang tujuan (3 huruf sesuai ketentuan internasional -> kode ISO, misal Ringgit = MYR) : ") 
     nominal = int(input("Masukkan nominal uang : ")) 
