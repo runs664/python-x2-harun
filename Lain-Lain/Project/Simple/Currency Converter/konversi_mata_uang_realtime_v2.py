@@ -16,11 +16,15 @@ class KonversiUang:
         self.dt_object = datetime.fromtimestamp(self.timestamp)
 
     def refresh(self, url):
-        data = requests.get(url).json()
-        json_object = json.dumps(data, indent = 4)
-        with open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'w') as f:
-            f.write(json_object)
-        self.dt_object = datetime.fromtimestamp(self.timestamp)
+        if (int(datetime.now().timestamp()) - self.timestamp) >= 3600:
+            data = requests.get(url).json()
+            json_object = json.dumps(data, indent = 4)
+            with open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'w') as f:
+                f.write(json_object)
+            self.timestamp = data["timestamp"]
+            self.dt_object = datetime.fromtimestamp(self.timestamp)
+        else:
+            print("Database sudah dalam status terbaru")
 
     def konverter(self, nominal, dari, tujuan):
         base = self.kurensi[dari]
