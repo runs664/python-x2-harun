@@ -16,11 +16,14 @@ class KonversiUang:
         self.dt_object = datetime.fromtimestamp(self.timestamp)
 
     def refresh(self, url):
-        if (int(datetime.now().timestamp()) - self.timestamp) >= 3600:
+        if (int(datetime.now().timestamp()) - self.timestamp) >= 3600: # karena plan di fixer.io hanya update hourly
             data = requests.get(url).json()
             json_object = json.dumps(data, indent = 4)
             with open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'w') as f:
                 f.write(json_object)
+            self.kurensi = data["rates"]
+            self.tanggal = data["date"]
+            self.namakurensi = list(self.kurensi.keys())
             self.timestamp = data["timestamp"]
             self.dt_object = datetime.fromtimestamp(self.timestamp)
         else:
