@@ -33,7 +33,7 @@ if __name__ == "__main__":
     konfirmasi = input("Apakah ingin memuat ulang realtime database? (koneksi internet diperlukan) Y/N ")
     if konfirmasi.upper() == 'Y':
         konversi.refresh(url)
-    print("Data ISO tiap negara\n", konversi.namakurensi)
+    print("Data ISO tiap negara:\n", konversi.namakurensi)
     dari = input("Masukkan jenis mata uang awal (3 huruf sesuai ketentuan internasional -> kode ISO, misal US Dollar = USD) : ") 
     tujuan = input("Masukkan jenis mata uang tujuan (3 huruf sesuai ketentuan internasional -> kode ISO, misal Ringgit = MYR) : ") 
     nominal = int(input("Masukkan nominal uang : ")) 
