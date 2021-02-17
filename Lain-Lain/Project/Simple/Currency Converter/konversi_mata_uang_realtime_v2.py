@@ -1,0 +1,44 @@
+import requests
+import json
+class KonversiUang:
+    kurensi = {}  
+    tanggal = ''
+    def __init__(self): 
+        f = open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'r')
+        data = json.load(f) 
+
+        # ekstrak data kurensi dan tanggal 
+        self.kurensi = data["rates"]
+        self.tanggal = data["date"]
+        self.namakurensi = list(self.kurensi.keys())
+
+    def refresh(self, url):
+        data = requests.get(url).json()
+        json_object = json.dumps(data, indent = 4)
+        with open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'w') as f:
+            f.write(json_object)
+
+    def konverter(self, nominal, dari, tujuan):
+        base = self.kurensi[dari]
+        pengkali = self.kurensi[tujuan]
+        return (nominal/base)*pengkali
+
+
+if __name__ == "__main__": 
+  
+    # ACCESS_KEY = 'access key dari fixer.io' 
+    url = str.__add__('http://data.fixer.io/api/latest?access_key=', '64288a10cb40d5ee370f208fe6676642')  # url + access_key
+    konversi = KonversiUang()
+    konfirmasi = input("Apakah ingin memuat ulang realtime database? Y/N ")
+    if konfirmasi.upper() == 'Y':
+        konversi.refresh(url)
+    print("Data ISO tiap negara\n", konversi.namakurensi)
+    dari = input("Masukkan jenis mata uang awal (3 huruf sesuai ketentuan internasional -> kode ISO, misal US Dollar = USD) : ") 
+    tujuan = input("Masukkan jenis mata uang tujuan (3 huruf sesuai ketentuan internasional -> kode ISO, misal Ringgit = MYR) : ") 
+    nominal = int(input("Masukkan nominal uang : ")) 
+  
+    hasil = konversi.konverter(nominal, dari.upper(), tujuan.upper())
+    print('==============================================================================')
+    print("{:,.2f} {} bernilai {:,.2f} {}".format(nominal, dari.upper(), hasil, tujuan.upper()))
+    print('==============================================================================')
+    print("Berdasarkan database tertanggal", konversi.tanggal)
