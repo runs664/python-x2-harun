@@ -1,6 +1,7 @@
 import requests
 import json
 from datetime import datetime
+from requests.exceptions import ConnectionError
 class KonversiUang:
     kurensi = {}  
     tanggal = ''
@@ -21,7 +22,7 @@ class KonversiUang:
             json_object = json.dumps(data, indent = 4)
             with open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'w') as f:
                 f.write(json_object)
-            self.kurensi = data["rates"]
+            self.kurensi = data["rates"]                               # memperbarui data sesuai database terbaru
             self.tanggal = data["date"]
             self.namakurensi = list(self.kurensi.keys())
             self.timestamp = data["timestamp"]
@@ -43,7 +44,10 @@ if __name__ == "__main__":
     print("Database yang dipakai adalah data.json dengan update terakhir:",konversi.dt_object)
     konfirmasi = input("Apakah ingin memuat ulang realtime database? (koneksi internet diperlukan) Y/N ")
     if konfirmasi.upper() == 'Y':
-        konversi.refresh(url)
+        try:
+            konversi.refresh(url)
+        except ConnectionError as e:
+            print("Tidak ada koneksi internet, anda akan menggunakan database", konversi.dt_object)
     print("Data ISO tiap negara:\n", konversi.namakurensi)
     dari = input("Masukkan jenis mata uang awal (3 huruf sesuai ketentuan internasional -> kode ISO, misal US Dollar = USD) : ") 
     tujuan = input("Masukkan jenis mata uang tujuan (3 huruf sesuai ketentuan internasional -> kode ISO, misal Ringgit = MYR) : ") 
