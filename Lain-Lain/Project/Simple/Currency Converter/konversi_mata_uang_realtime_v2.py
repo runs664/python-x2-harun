@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime
 from requests.exceptions import ConnectionError
+
 class KonversiUang:
     kurensi = {}  
     tanggal = ''
@@ -22,13 +23,14 @@ class KonversiUang:
             json_object = json.dumps(data, indent = 4)
             with open(r'Lain-Lain\Project\Simple\Currency Converter\data.json', 'w') as f:
                 f.write(json_object)
+            print("\nUpdate berhasil")
             self.kurensi = data["rates"]                               # memperbarui data sesuai database terbaru
             self.tanggal = data["date"]
             self.namakurensi = list(self.kurensi.keys())
             self.timestamp = data["timestamp"]
             self.dt_object = datetime.fromtimestamp(self.timestamp)
         else:
-            print("Database sudah dalam status terbaru")
+            print("\nDatabase sudah dalam status terbaru. {} detik sebelum update tersedia".format(3600 - (int(datetime.now().timestamp()) - self.timestamp)))
 
     def konverter(self, nominal, dari, tujuan):
         base = self.kurensi[dari]
@@ -42,19 +44,19 @@ if __name__ == "__main__":
     url = str.__add__('http://data.fixer.io/api/latest?access_key=', '64288a10cb40d5ee370f208fe6676642')  # url + access_key
     konversi = KonversiUang()
     print("Database yang dipakai adalah data.json dengan update terakhir:",konversi.dt_object)
-    konfirmasi = input("Apakah ingin memuat ulang realtime database? (koneksi internet diperlukan) Y/N ")
+    konfirmasi = input("\nApakah ingin memuat ulang realtime database? (koneksi internet diperlukan) Y/N ")
     if konfirmasi.upper() == 'Y':
         try:
             konversi.refresh(url)
         except ConnectionError as e:
-            print("Tidak ada koneksi internet, anda akan menggunakan database", konversi.dt_object)
-    print("Data ISO tiap negara:\n", konversi.namakurensi)
-    dari = input("Masukkan jenis mata uang awal (3 huruf sesuai ketentuan internasional -> kode ISO, misal US Dollar = USD) : ") 
+            print("\nTidak ada koneksi internet, update dibatalkan")
+    print("\nData ISO tiap negara:\n", konversi.namakurensi)
+    dari = input("\nMasukkan jenis mata uang awal (3 huruf sesuai ketentuan internasional -> kode ISO, misal US Dollar = USD) : ") 
     tujuan = input("Masukkan jenis mata uang tujuan (3 huruf sesuai ketentuan internasional -> kode ISO, misal Ringgit = MYR) : ") 
     nominal = int(input("Masukkan nominal uang : ")) 
   
     hasil = konversi.konverter(nominal, dari.upper(), tujuan.upper())
-    print('==============================================================================')
+    print('\n==============================================================================')
     print("{:,.2f} {} bernilai {:,.2f} {}".format(nominal, dari.upper(), hasil, tujuan.upper()))
     print('==============================================================================')
     print("Berdasarkan database pada waktu:", konversi.dt_object)
