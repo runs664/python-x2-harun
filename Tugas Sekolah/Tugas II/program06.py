@@ -1,9 +1,14 @@
-kata = 'kuku kaki kakekku kaku kaku'
-pencari = 'k'
-jum = 0
-for letter in kata:
-    if letter == pencari:
-        jum += 1
-        continue
-    print('iterasi sekarang :', letter)
-print('jumlah huruf {}, ada : {}'.format(pencari, jum))
+kalimat = input('Masukkan kalimat : ')
+
+daftar = []
+for huruf in kalimat:
+    daftar.append(huruf)
+
+daftar_kunci = set(list(daftar))
+
+for letter in sorted(daftar_kunci):
+    jum = 0
+    for kunci in sorted(daftar):
+        if kunci == letter:
+            jum += 1
+    print('Jumlah huruf {}, ada : {}'.format(letter, jum))
