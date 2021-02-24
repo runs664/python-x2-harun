@@ -11,4 +11,4 @@ for letter in sorted(daftar_kunci):
     for kunci in sorted(daftar):
         if kunci == letter:
             jum += 1
-    print('Jumlah huruf {}, ada : {}'.format(letter, jum))
+    print('Jumlah karakter {}, ada : {}'.format(letter, jum))
