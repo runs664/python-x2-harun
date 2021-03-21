@@ -89,7 +89,7 @@ url = str.__add__('https://periodic-table-of-elements.p.rapidapi.com/elements?ra
 n = int(input("Cari atom kimia dengan nomor: "))
 
 if n < 1 or n > 118:
-    ctypes.windll.user32.MessageBoxW(0, "Nomor atom %s tidak ada dalam daftar" %n, "Out of Index", 0)
+    ctypes.windll.user32.MessageBoxW(0, f"Nomor atom {n} tidak ada dalam daftar", "Out of Index", 0)
 else:
     try:
         km = kimia()
@@ -100,7 +100,7 @@ else:
         km.refresh(url)
         km.cariIndeks(n)
     except ConnectionError:
-        print("tidak ada koneksi internet")
+        ctypes.windll.user32.MessageBoxW(0, "Tidak ada koneksi internet", "Error", 0)
 
     for i, j in zip([ky for ky in km.indeks.keys()], [val for val in km.indeks.values()]):
         print(i, ":", j)
