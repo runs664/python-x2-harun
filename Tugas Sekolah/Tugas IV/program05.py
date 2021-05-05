@@ -1,6 +1,5 @@
 def binaryToDecimal(n):
-    result = 0
-    pemangkat = 0
+    result, pemangkat = 0, 0
     for x in n:
         if int(x) == 1:
             result += (2 ** pemangkat)
