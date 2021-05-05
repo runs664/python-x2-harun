@@ -1,4 +1,4 @@
-def binaryToDecimal(n: int):
+def binaryToDecimal(n):
     result = 0
     pemangkat = 0
     for x in n:
@@ -7,4 +7,5 @@ def binaryToDecimal(n: int):
         pemangkat += 1
     return result
 
-print(binaryToDecimal('11011011'))
+stdin = input("masukkan angka biner: ")
+print(f"hasil konversi dari {stdin} adalah {binaryToDecimal(stdin)}")
